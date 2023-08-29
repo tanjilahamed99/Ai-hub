@@ -8,7 +8,8 @@ const dataLoad = async () => {
 const dipsPlayData = (data) => {
     const dataContainer = document.getElementById('ai-container');
     // console.log(dataContainer);
-    data.forEach(element => {
+    let count = 0;
+    data.slice(0, 6).forEach(element => {
         console.log(element)
         const div = document.createElement('div')
         div.classList = `card  bg-base-100 shadow-xl p-5`;
@@ -19,7 +20,21 @@ const dipsPlayData = (data) => {
          <li>${element.features[0] ? element.features[0] : ""}</li>
          <li>${element.features[1] ? element.features[1] : ""}</li>
          <li>${element.features[3] ? element.features[3] : ""}</li>
-        </ul>
+         </ul>
+         <hr class="my-6">
+         <div class="flex items-center justify-around">
+         <div class="flex-1">
+         <h2>${element.name ? element.name : ""}</h2>
+         <div class="flex items-center gap-2">
+           <i class="fa-solid fa-calendar-days"></i>
+           <h2>${element.published_in ? element.published_in : ""}</h2>
+         </div>
+         </div>
+          <div class="bg-[#FEF7F7] rounded-full p-4"> 
+          <i class="fa-solid fa-arrow-right text-[#EB5757]"></i>
+          </div>
+         </div>
+         
         `
         dataContainer.appendChild(div);
     })
